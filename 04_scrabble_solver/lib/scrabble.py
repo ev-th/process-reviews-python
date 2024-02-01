@@ -9,8 +9,6 @@ class Scrabble:
         }
 
     def score(self):
-        total = 0
-        for char in self.word:
-
-            total += self.letter_values.get(char.lower(), 0)
-        return total
+        return sum(
+            [self.letter_values.get(char.lower(), 0) for char in self.word]
+        )
