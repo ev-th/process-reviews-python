@@ -9,19 +9,19 @@ class Shop:
             'D': {'price': 15, 'offer': None},
         }
     def checkout(self, skus: str) -> int:
-        for sku in skus:
-            if not sku in 'ABCD':
-                return -1
-
         counter = Counter(skus)
         total_price = 0
 
         for sku, count in counter.items():
+            if sku not in self.items.keys():
+                return -1
+
+            standard_price = self.items[sku]['price']
             offer = self.items[sku]['offer']
             if offer:
                 total_price += (count // offer[0]) * offer[1]
-                total_price += (count % offer[0]) * self.items[sku]['price']
+                total_price += (count % offer[0]) * standard_price
             else:
-                total_price += count * self.items[sku]['price']
+                total_price += count * standard_price
 
         return total_price
