@@ -8,3 +8,6 @@ def test_ten_minute_walk_returns_false_if_n_count_not_equal_to_s_count():
 
 def test_ten_minute_walk_returns_false_if_w_count_not_equal_to_e_count():
     assert ten_minute_walk(['w', 'w', 'w', 'e', 'e', 'w', 'n', 'n', 's', 's']) is False
+
+def test_ten_minute_walk_returns_true_if_length_is_10_and_endpoint_is_startpoint():
+    assert ten_minute_walk(['w', 's', 'e', 'e', 'n', 'n', 'e', 's', 'w', 'w']) is True

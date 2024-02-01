@@ -6,9 +6,7 @@ def ten_minute_walk(directions: [str]) -> bool:
 
     counter = Counter(directions)
 
-    if counter['n'] != counter['s']:
-        return False
-    if counter['w'] != counter['e']:
-        return False
+    if counter['n'] == counter['s'] and counter['w'] == counter['e']:
+        return True
 
-    return True
+    return False
